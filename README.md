@@ -10,6 +10,8 @@ This is yet another event emitter implementation for [node.js](http://nodejs.org
 	* `off(event[, listener])`: alias to `removeListener()`
 	* `addEventListener(event, listener)`: alias to `addListener()`
 	* `emit_myevent([ arg1... ])`: alias for `emit('myevent'[, arg1... ])`
+* New member
+	* `ev_dedupListener`: does not add a listener if already defined for a given event
 * Listeners are triggered without any context whereas _EventEmitter_ applies the emitter's
 
 ## API
