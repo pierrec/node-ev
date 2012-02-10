@@ -31,13 +31,15 @@ The constructor takes an options object listing the possible events to be emitte
 
 ```
 {
-	
+	data: 3
+,	end: 1
+, drain: 0
 }
 ```
 
 There are 3 events defined by default:
 
-* `error(Error)`: if emitted while no listener attached to it, it will throw as per _EventEmitter_'s behaviour
+* `error(Error)`: if emitted while no listener attached to it, it will throw as per _EventEmitter_'s behavior
 * `newListener(event, listener)`: emitted when a listener is attached to an event
 * `oldListener(event, listener)`: emitted when a listener is removed from an event
 
