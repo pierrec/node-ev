@@ -7,8 +7,9 @@ This is yet another event emitter implementation for [node.js](http://nodejs.org
 ## Differences with node's EventEmitter
 
 * New methods
-	* `.off(event[, listener])`: alias to `removeListener()`
-	* `.emit_myevent()`: alias for `emit('myevent')`
+	* `off(event[, listener])`: alias to `removeListener()`
+	* `addEventListener(event, listener)`: alias to `addListener()`
+	* `emit_myevent([ arg1... ])`: alias for `emit('myevent'[, arg1... ])`
 * Listeners are triggered without any context whereas EventEmitter applies the emitter's
 
 ## API

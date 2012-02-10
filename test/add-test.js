@@ -9,9 +9,13 @@ var options = { match: 2 }
 describe('#add()', function () {
   function handler () {}
 
-  describe('alias', function () {
+  describe('aliases', function () {
     it('addListener === on', function (done) {
       assert.deepEqual(EV.addListener, EV.on)
+      done()
+    })
+    it('addListener === addEventListener', function (done) {
+      assert.deepEqual(EV.addListener, EV.addEventListener)
       done()
     })
   })

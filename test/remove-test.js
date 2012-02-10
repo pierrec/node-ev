@@ -50,4 +50,18 @@ describe('#removeListener()', function () {
       done()
     })
   })
+
+  describe('removing an existing listener', function () {
+    var ev = new EV(options)
+
+    it('should emit oldListener', function (done) {
+      ev.on('oldListener', function (ev, listener) {
+        assert.equal(ev, 'match')
+        assert.deepEqual(listener, handler1)
+        done()
+      })
+      ev.on('match', handler1)
+      ev.off('match', handler1)
+    })
+  })
 })

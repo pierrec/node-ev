@@ -3,7 +3,7 @@
 , "name": "ev"
 , "description": "Fast event emitter"
 , "keywords": ["event","emitter","listener"]
-, "version": "0.0.1"
+, "version": "0.0.2"
 , "homepage": "http://github.com/pierrec/node-ev"
 , "repository": {
     "type": "git"
