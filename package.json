@@ -1,9 +1,9 @@
 {
   "author": "Pierre Curto"
 , "name": "ev"
-, "description": "Fast event emitter"
+, "description": "Fast event emitter - compatible with node's EventEmitter but faster!"
 , "keywords": ["event","emitter","listener"]
-, "version": "0.0.2"
+, "version": "0.0.3"
 , "homepage": "http://github.com/pierrec/node-ev"
 , "repository": {
     "type": "git"

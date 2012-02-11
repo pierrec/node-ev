@@ -38,4 +38,21 @@ describe('#once()', function () {
       done()
     })
   })
+
+  describe('arguments', function () {
+    var ev = new EV(options)
+    var args = []
+
+    it('should emit trigger the handler with all its arguments', function (done) {
+      function handler () {
+        args.push(arguments.length)
+      }
+      ev.once('match', handler)
+      ev.emit_match(null, null)
+      assert.deepEqual(args, [2])
+      done()
+    })
+  })
+
+  // TODO test once([ev1,ev2], listener)
 })
