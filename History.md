@@ -1,3 +1,8 @@
+0.0.4 / 2012-02-26
+==================
+
+	* Fix in handling ev_dedupListener where handler was always added to the cache
+
 0.0.3 / 2012-02-11
 ==================
 
