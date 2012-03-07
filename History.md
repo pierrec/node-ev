@@ -1,3 +1,12 @@
+0.0.5 / 2012-03-07
+==================
+
+	* Removed the 3 arguments limitation
+	* Listeners scope set to the emitting object
+	=> EV is now _100%_ compatible with nodejs' native EventEmitter!
+	* Added `version` property to the constructor
+	* Added warning on undefined event emission
+
 0.0.4 / 2012-02-26
 ==================
 

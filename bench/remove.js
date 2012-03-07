@@ -1,16 +1,24 @@
-var level = process.argv[2] || 2
+#!/usr/bin/env node
+
+
+var EventEmitter = require('events').EventEmitter
+var EV = require('..')
+
+var bench = require('visualbench')( EV.version + ':remove' )
+var listenersNum = bench.STEPS_PER_LAP
 
 function test () {
 	return 'test'
 }
 
-var EventEmitter = require('events').EventEmitter
-var EV = require('..')
-
 var nodeEV = new EventEmitter()
 var ev = new EV({ match: 2 })
 
-for (var i = 0; i < level; i++) {
+// Avoid warnings
+nodeEV.setMaxListeners(0)
+ev.setMaxListeners(0)
+
+for (var i = 0; i < listenersNum; i++) {
 	nodeEV.addListener('match', test)
 	ev.addListener('match', test)
 }
@@ -19,11 +27,12 @@ exports.compare = {
 	"ev": function () {
 		ev.removeListener('match', test)
 	}
-, "node EventEmitter": function () {
+, "EventEmitter": function () {
 		nodeEV.removeListener('match', test)
 	}
 }
-require("bench").runMain()
+
+bench.runMain()
 
 // benchmarking node-ev/bench/bench_remove.js
 // Please be patient.

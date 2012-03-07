@@ -17,9 +17,9 @@ describe('#emit()', function () {
   })
 
   describe('emit("match")', function () {
-    var ev = new EV(options)
-
     it('should trigger the handler with its arguments', function (done) {
+      var ev = new EV(options)
+      
       function handler (a, b) {
         assert.equal(a, 'a')
         assert.equal(b, 'b')
@@ -28,12 +28,26 @@ describe('#emit()', function () {
       ev.on('match', handler)
       ev.emit('match', 'a', 'b')
     })
+
+    it('should trigger the handler with its arguments', function (done) {
+      var ev = new EV(options)
+      
+      function handler (a, b, c, d) {
+        assert.equal(a, 'a')
+        assert.equal(b, 'b')
+        assert.equal(c, 'c')
+        assert.equal(d, 'd')
+        done()
+      }
+      ev.on('match', handler)
+      ev.emit('match', 'a', 'b', 'c', 'd')
+    })
   })
 
   describe('emit_match', function () {
-    var ev = new EV(options)
-
     it('should emit trigger the handler with its arguments', function (done) {
+      var ev = new EV(options)
+
       function handler (a, b) {
         assert.equal(a, 'a')
         assert.equal(b, 'b')
@@ -41,6 +55,20 @@ describe('#emit()', function () {
       }
       ev.on('match', handler)
       ev.emit_match('a', 'b')
+    })
+    
+    it('should emit trigger the handler with its arguments', function (done) {
+      var ev = new EV(options)
+      
+      function handler (a, b, c, d) {
+        assert.equal(a, 'a')
+        assert.equal(b, 'b')
+        assert.equal(c, 'c')
+        assert.equal(d, 'd')
+        done()
+      }
+      ev.on('match', handler)
+      ev.emit_match('a', 'b', 'c', 'd')
     })
   })
 

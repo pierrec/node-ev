@@ -1,9 +1,14 @@
-function test () {
-	return 'test'
-}
+#!/usr/bin/env node
+
 
 var EventEmitter = require('events').EventEmitter
 var EV = require('..')
+
+var bench = require('visualbench')( EV.version + ':add' )
+
+function test () {
+	return 'test'
+}
 
 var nodeEV = new EventEmitter()
 var ev = new EV({ match: 2 })
@@ -16,11 +21,12 @@ exports.compare = {
 	"ev": function () {
 		ev.addListener('match', test)
 	}
-, "node EventEmitter": function () {
+, "EventEmitter": function () {
 		nodeEV.addListener('match', test)
 	}
 }
-require("bench").runMain()
+
+bench.runMain()
 
 // benchmarking node-ev/bench/bench_add.js
 // Please be patient.

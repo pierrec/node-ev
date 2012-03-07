@@ -1,18 +1,23 @@
-var level = process.argv[2] || 2
+#!/usr/bin/env node
+
+
+var listenersNum = process.argv[2] || 2
+
+var EventEmitter = require('events').EventEmitter
+var EV = require('..')
+
+var bench = require('visualbench')( EV.version + ':emit:' + listenersNum )
 
 function test () {
 	return 'test'
 }
-
-var EventEmitter = require('events').EventEmitter
-var EV = require('..')
 
 var nodeEV = new EventEmitter()
 var ev = new EV({ match: 2 })
 var evNoInit = new EV()
 evNoInit.emit('match', 1, 2)
 
-for (var i = 0; i < level; i++) {
+for (var i = 0; i < listenersNum; i++) {
 	nodeEV.addListener('match', test)
 	ev.addListener('match', test)
 	evNoInit.addListener('match', test)
@@ -28,11 +33,12 @@ exports.compare = {
 , "ev no init": function () {
 		evNoInit.emit_match(1, 2)
 	}
-, "node EventEmitter": function () {
+, "EventEmitter": function () {
 		nodeEV.emit('match', 1, 2)
 	}
 }
-require("bench").runMain()
+
+bench.runMain()
 
 // benchmarking node-ev/bench/bench_emit.js
 // Please be patient.
@@ -89,3 +95,4 @@ require("bench").runMain()
 // 76.97% faster
 // 4.34 times as fast
 // 0.64 order(s) of magnitude faster
+
