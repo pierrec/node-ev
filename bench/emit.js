@@ -6,7 +6,7 @@ var listenersNum = process.argv[2] || 2
 var EventEmitter = require('events').EventEmitter
 var EV = require('..')
 
-var bench = require('visualbench')( EV.version + ':emit:' + listenersNum )
+var bench = require('visualbench')( 'emit:' + listenersNum, EV.version )
 
 function test () {
 	return 'test'

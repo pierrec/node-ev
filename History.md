@@ -1,3 +1,9 @@
+0.0.6 / 2012-03-08
+==================
+
+	* Added stack trace to the 'Warning: undefined event...' message
+	* Mitigated performance regression due to scope setting
+
 0.0.5 / 2012-03-07
 ==================
 
