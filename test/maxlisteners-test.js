@@ -23,7 +23,7 @@ describe('#setMaxListeners()', function () {
     })
 
     describe('> 10', function () {
-      var ev = new EV(options)
+      var ev = new EV(options, true)
 
       it('should warn', function (done) {
         for (var i = 0; i < 11; i++)
@@ -50,7 +50,7 @@ describe('#setMaxListeners()', function () {
     })
 
     describe('> 5', function () {
-      var ev = new EV(options)
+      var ev = new EV(options, true)
       ev.setMaxListeners(5)
 
       it('should warn', function (done) {
@@ -78,7 +78,7 @@ describe('#setMaxListeners()', function () {
     })
 
     describe('> 1', function () {
-      var ev = new EV(options)
+      var ev = new EV(options, true)
       ev.setMaxListeners(1)
 
       it('should warn', function (done) {

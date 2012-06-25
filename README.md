@@ -32,7 +32,10 @@ ev.emit_match('shortcut emit!') // received shortcut emit!
 
 ### Constructor
 
-The constructor takes an options object listing the possible events to be emitted and their corresponding number of arguments. Note that EV *will* emit events even though they may not have been set by the constructor but performance will be affected in highly demanding situations.
+`EV(events, flag`
+* `events` (_Object_): events object listing the possible events to be emitted and their corresponding number of arguments. Note that EV *will* emit events even though they may not have been set by the constructor but performance will be affected in highly demanding situations.
+* `flag` (_Boolean_): indicates whether warnings should be triggered (default=true)
+
 
 ```javascript
 {

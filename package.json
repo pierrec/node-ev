@@ -3,7 +3,7 @@
 , "name": "ev"
 , "description": "Fast event emitter - compatible with node's EventEmitter but faster!"
 , "keywords": ["event","emitter","listener"]
-, "version": "0.0.6"
+, "version": "0.0.7"
 , "homepage": "http://github.com/pierrec/node-ev"
 , "repository": {
     "type": "git"
@@ -21,6 +21,7 @@
     "node": ">= 0.6"
   }
 , "dependencies": {
+    "fnutils": "latest"
   }
 , "devDependencies": {
     "mocha": ">= 0.10"
